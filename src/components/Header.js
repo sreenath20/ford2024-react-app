@@ -1,15 +1,18 @@
-// function Menu(props) {
+function Menu(props) {
 
-//     return (
-//         <a href={props.url}> {props.name}</a>
-//     );
-
-// }
-
-function Menu({name,url}) {
+    //props.name = "Sreenath"; // props are immutable
+    //let name = props.name + "Change";
 
     return (
-        <a href={url}> {name}</a>
+        <a href={props.url} style={{ padding: 10 }}> {props.name}</a>
+    );
+
+}
+
+function Menu2({ name, url }) { // props : parameter to my react functions
+
+    return (
+        <a href={url} style={{ padding: 10 }}> {name}</a>
     );
 
 }
@@ -20,9 +23,11 @@ function Header() {
     return (
         <>
             <h3> Application Header ...</h3>
+            {/* // one way data binding
+           <img src=""></img> */ }
             <Menu name={names[0]} url={url[0]}></Menu>
             <Menu name={names[1]} url={url[1]}></Menu>
-            <Menu name={names[2]} url={url[2]}></Menu>
+            <Menu2 name={names[2]} url={url[2]}></Menu2>
         </>
     );
 }
