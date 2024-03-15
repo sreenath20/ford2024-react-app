@@ -1,4 +1,4 @@
-import { recipes } from '../resources/data.js' 
+import { recipes } from '../../resources/data.js' 
 
 function ItemList({ingredients}){
   return(

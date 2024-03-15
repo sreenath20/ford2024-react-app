@@ -1,8 +1,11 @@
 
+import demoService from "../../services/DemoService";
+
 function ProfessionTable({ peoples, profession }) {
     console.log(peoples);
     console.log(profession);
-
+    console.log("DemoService data = "+ demoService.getData());
+    demoService.setData("India");
     peoples = peoples.filter((ppl) => ppl.profession === profession);
     console.log(peoples);
     return (

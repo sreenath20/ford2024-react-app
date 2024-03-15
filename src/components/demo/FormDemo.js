@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function FormDemo() {
-
     let [name, setName] = useState("");
     let [password, setPassword] = useState("");
     let [isAdmin, setIsAdmin] = useState(false);
