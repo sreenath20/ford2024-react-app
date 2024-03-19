@@ -7,6 +7,8 @@ import './App.css';
 import Demo from './components/demo/Demo';
 import DisplayProducts from './components/DisplayProducts';
 import AddProduct from './components/AddProduct';
+import LoginForm from './components/LoginForm';
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="login" element={<LoginForm />} />
             <Route path="products" element={<DisplayProducts />} />
             <Route path="add-product" element={<AddProduct />} />
             <Route path="demo" element={<Demo />} />

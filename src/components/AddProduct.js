@@ -24,8 +24,8 @@ function AddProduct() {
         e.preventDefault();
 
         console.log(newProduct);
-        console.log(offer);
-       // console.log({...newProduct,'offer':offer});
+        // console.log(offer);
+        // console.log({...newProduct,'offer':offer});
 
         productService.addProduct(newProduct)
             .then(
@@ -43,9 +43,6 @@ function AddProduct() {
                     setErrorMessage("Could not add product.");
                 }
             )
-
-
-
     };
     const handleProductChange = (e) => {
         let name = e.target.name;
@@ -53,13 +50,13 @@ function AddProduct() {
 
         setNewProduct({ ...newProduct, [name]: value });
     }
-    const handleDiscountChange = (e) => {
-        let name = e.target.name;
-        let value = e.target.value;
+    // const handleDiscountChange = (e) => {
+    //     let name = e.target.name;
+    //     let value = e.target.value;
 
-        setOffer({ ...offer, [name]: value });
+    //     setOffer({ ...offer, [name]: value });
 
-    }
+    // }
 
     const elementForm = (
         <>
@@ -76,11 +73,11 @@ function AddProduct() {
             <form onSubmit={handleSubmit}>
                 <p>
                     Name:
-                    <input type="text" name="name" value={newProduct.name} onChange={handleProductChange}></input>
+                    <input type="text" name="name" value={newProduct.name} onChange={handleProductChange} required pattern="[a-zA-Z ]{3,}" title="Name should contain only chars and has min 3 chars length."></input>
                 </p>
                 <p>
                     Price:
-                    <input type="number" name="price" value={newProduct.price} onChange={handleProductChange}></input>
+                    <input type="text" name="price" value={newProduct.price} onChange={handleProductChange} required pattern="[0-9]{2,}" title="Please enter min 2 digit price"></input>
                 </p>
 
                 {/* <p>
