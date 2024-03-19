@@ -9,5 +9,9 @@ class ProductService {
     deleteProductById(id){
         return axiosInstance.delete("http://localhost:8090/product/"+id);
     }
+
+    addProduct(newProduct){
+        return axiosInstance.post('http://localhost:8090/product',newProduct);
+    }
 }
 export default new ProductService();

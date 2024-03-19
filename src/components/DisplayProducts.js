@@ -10,12 +10,10 @@ function ProductTable({ products, onDeleteProduct }) {
             <h3> All Product Details:</h3>
             <table>
                 <thead>
-                    <tr key="0">
+                    <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-
+                        <th>Salary</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,12 +39,12 @@ function ProductTable({ products, onDeleteProduct }) {
 
 function DisplayProducts() {
 
-    const [products, setProducts] = useState([{}])
+    const [products, setProducts] = useState([])
 
     useEffect(
         () => { //Runs only on the first render
+            console.log("useEffect call back");
             loadAllProducts();
-
         }, []);
 
     const loadAllProducts = () =>
@@ -71,7 +69,7 @@ function DisplayProducts() {
             .then(
                 (resp) => {
                     console.log(resp);
-                    setProducts( products.filter((p)=>p.id !=id));
+                    setProducts(products.filter((p) => p.id != id));
                 }
             )
             .catch(
@@ -84,8 +82,10 @@ function DisplayProducts() {
     }
     return (
         <>
-            {/* <h3>Display all products</h3> */}
-            <ProductTable products={products} onDeleteProduct={handleDeleteProduct} />
+
+            {products.length > 0 ?
+                <ProductTable products={products} onDeleteProduct={handleDeleteProduct} />
+                : <h3>No Products to Display.</h3>}
         </>
     )
 }
